@@ -6,13 +6,11 @@ _posY = nil;
 
 _RND = (floor random 4);
 
+_mrk = format ["tp%1", _RND]
 
-call compile format 
-	[ 
-	"_posX = (getPos tp%1 select 0); 
-	_posY = (getPos tp%1 select 1);"
-	, _RND 
-	];
+_posX = (getMarkerPos mrk select 0); 
+_posY = (getMarkerPos mrk select 1);
+
 
 
 p1 setPosATL [(_posX + _valRNDX), (_posY + _valRNDY), 0];
