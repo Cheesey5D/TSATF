@@ -15,4 +15,4 @@ call compile format
 	];
 
 
-p1 setPos [_posX + _valRNDX, _posY + _valRNDY];
+p1 setPosATL [(_posX + _valRNDX), (_posY + _valRNDY), 0];
