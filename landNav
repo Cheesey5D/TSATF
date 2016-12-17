@@ -16,24 +16,23 @@ _posY = (getMarkerPos _mrk select 1);
 
 {_x 
 	SetPosATL [(_posX + _valRNDX),(_posY + _valRNDY), 0];
-	mrkFinish = createMarkerLocal [(format ["unique_marker_%1", counterMRK]), [(_posX + _valRNDX2),(_posY + _valRNDY2)]];
-	mrkFinish setMarkerTypeLocal "hd_end";
 	} 
 forEach units group p1;
-hint format ["%1", mrkFinish];
+
+mrkFinish = createMarker [(format ["unique_marker_%1", counterMRK]), [(_posX + _valRNDX2),(_posY + _valRNDY2)]];
+mrkFinish setMarkerType "hd_end";
 counterMRK = counterMRK +1;
 
 [] spawn {
 
 waitUntil {(p1 distance (getMarkerPos mrkFinish) < 100)};
-hint "COCU";
 smoke = "SmokeShellRed" createVehicle (getMarkerPos mrkFinish);
 };
 
 [] spawn {
 waitUntil {(p1 distance (getMarkerPos mrkFinish) < 30)};
 	{_x 
-		SetPosATL [(getMarkerPos mrkBase select 0),(getMarkerPos mrkBase select 1), 0];
+		SetPosATL [(getMarkerPos "mrkBase" select 0),(getMarkerPos "mrkBase" select 1), 0];
 		deleteVehicle smoke;
 		deleteMarkerLocal mrkFinish;
 	}
