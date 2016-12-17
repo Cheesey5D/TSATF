@@ -16,15 +16,17 @@ _posY = (getMarkerPos _mrk select 1);
 
 {_x 
 	SetPosATL [(_posX + _valRNDX),(_posY + _valRNDY), 0];
-	_gID = groupId (group p1);
-	mrkFinish = createMarkerLocal [_gID, [(_posX + _valRNDX2),(_posY + _valRNDY2)]];
+	mrkFinish = createMarkerLocal [(format ["unique_marker_%1", counterMRK]), [(_posX + _valRNDX2),(_posY + _valRNDY2)]];
 	mrkFinish setMarkerTypeLocal "hd_end";
 	} 
 forEach units group p1;
+hint format ["%1", mrkFinish];
+counterMRK = counterMRK +1;
 
 [] spawn {
 
 waitUntil {(p1 distance (getMarkerPos mrkFinish) < 100)};
+hint "COCU";
 smoke = "SmokeShellRed" createVehicle (getMarkerPos mrkFinish);
 };
 
