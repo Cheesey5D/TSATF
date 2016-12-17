@@ -1,15 +1,12 @@
 _valRNDX = random [-1000,0,1000];
 _valRNDY = random [-1000,0,1000];
 
-_posX = nil;
-_posY = nil;
-
 _RND = (floor random 4);
 
 _mrk = format ["tp%1", _RND]
 
-_posX = (getMarkerPos mrk select 0); 
-_posY = (getMarkerPos mrk select 1);
+_posX = (getMarkerPos _mrk select 0); 
+_posY = (getMarkerPos _mrk select 1);
 
 
 
