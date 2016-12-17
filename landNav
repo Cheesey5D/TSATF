@@ -31,7 +31,7 @@ smoke = "SmokeShellRed" createVehicle (getMarkerPos mrkFinish);
 };
 
 [] spawn {
-waitUntil {(p1 distance (getMarkerPos mrkFinish) < 10)};
+waitUntil {(p1 distance (getMarkerPos mrkFinish) < 30)};
 	{_x 
 		SetPosATL [(getMarkerPos mrkBase select 0),(getMarkerPos mrkBase select 1), 0];
 		deleteVehicle smoke;
