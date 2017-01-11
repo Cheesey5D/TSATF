@@ -1,0 +1,8 @@
+respawn = 3;
+enableDebugConsole = 1;
+DisabledAI = 1;
+
+#include "defines.hpp"
+#include "dialogs.hpp"
+#include "\A3\ui_f\hpp\defineCommonGrids.inc"
+#include "\A3\ui_f\hpp\defineCommonColors.inc"
