@@ -24,8 +24,14 @@ ballsw = true;
 }
 else
 {
+
+{ call compile format [ "deleteVehicle %1", _x] } forEach _balls_array;
+
+/*
 deleteVehicle ball_ar;
 deleteVehicle ball_gl;
 deleteVehicle ball_r;
+*/
+
 ballsw = false;
 };
