@@ -9,7 +9,7 @@ private _pos = ([
 	, tgtVFar modelToWorld [0,0,30]
 ]) select (_this select 0);
 mrk = _mrktype createVehicle _pos;
-mrk setPos _pos;
+mrk setPosATL _pos;
 
 if (_this select 0 > 2) then {
 	"G_40mm_SmokeRed" createVehicle _pos;
