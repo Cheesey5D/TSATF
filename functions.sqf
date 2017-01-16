@@ -7,25 +7,23 @@ gnk_fnc_isAuthorizedUser = {
 
 
 gnk_fnc_initFamil = {
+	gnk_famil_tgt_array = ["O_Soldier_F","O_MBT_02_cannon_F","O_MRAP_02_F"];
 	gnk_formationBalls = [];
 	gnk_formationsArray = [
-		[	
-			/*Wedge*/
-			[-12, -20, 3.5],[12, -20, 3.5],[28, -44, 3.5]
-		],
-		[	
-			/*File"*/
-			[0, -10, 3.5],[0, -20, 3.5],[0, -30, 3.5]
-		],
-		[	
-			/*Line*/
-			[-12, 0, 3.5],[12, 0, 3.5],[24, 0, 3.5]
-		],
-		[
-			/*Column*/
-			[-4.5, -12, 3.5],[0, -24, 3.5],[-4.5, -36, 3.5]
-		]
-	];					
+				[/*Wedge*/
+					[-12, -20, 3.5],[12, -20, 3.5],[28, -44, 3.5]
+				],
+				[/*File"*/
+					[0, -10, 3.5],[0, -20, 3.5],[0, -30, 3.5]
+				],
+				[/*Line*/
+					[-12, 0, 3.5],[12, 0, 3.5],[24, 0, 3.5]
+				],
+				[/*Column*/
+					[-4.5, -12, 3.5],[0, -24, 3.5],[-4.5, -36, 3.5]
+				]
+				];
+					
 };
 
 
@@ -72,3 +70,19 @@ gnk_fnc_fam_showDistance = {
 		"G_40mm_SmokeRed" createVehicle _pos;
 	};
 };
+
+gnk_fnc_fam_contact = {
+
+if (!isNil "cont_tgt") then {deleteVehicle cont_tgt};
+
+	private _dist = ([
+		50, 100, 300, 600, 800
+		]) select _this;
+		
+	cont_tgt = (selectRandom gnk_famil_tgt_array) createVehicle (player getPos [_dist,(random 360)]);
+	
+	if (_this > 2) then {
+	_s = "G_40mm_SmokeRed" createVehicle position cont_tgt;
+	_s attachTo [cont_tgt, [0, 0, 10] ];
+	};
+};	
