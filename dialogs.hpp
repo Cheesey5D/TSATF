@@ -51,7 +51,7 @@ class btn_form_balls: RscButton
 	y = 0.2;
 	w = 0.125;
 	h = 0.04;
-	action = "call gnk_fnc_toggleBalls";
+	action = "0 call gnk_fnc_fam_toggleBalls";
 };
 class btn_form_wedge: RscButton
 {
@@ -61,7 +61,7 @@ class btn_form_wedge: RscButton
 	y = 0.2;
 	w = 0.075;
 	h = 0.04;
-	action = "0 call gnk_fnc_changeFormation";
+	action = "0 call gnk_fnc_fam_changeFormation";
 };
 class btn_form_file: RscButton
 {
@@ -71,7 +71,7 @@ class btn_form_file: RscButton
 	y = 0.2;
 	w = 0.075;
 	h = 0.04;
-	action = "1 call gnk_fnc_changeFormation";
+	action = "1 call gnk_fnc_fam_changeFormation";
 };
 class btn_form_line: RscButton
 {
@@ -81,7 +81,7 @@ class btn_form_line: RscButton
 	y = 0.2;
 	w = 0.075;
 	h = 0.04;
-	action = "2 call gnk_fnc_changeFormation";
+	action = "2 call gnk_fnc_fam_changeFormation";
 };
 class btn_form_column: RscButton
 {
@@ -91,7 +91,7 @@ class btn_form_column: RscButton
 	y = 0.2;
 	w = 0.075;
 	h = 0.04;
-	action = "3 call gnk_fnc_changeFormation";
+	action = "3 call gnk_fnc_fam_changeFormation";
 };
 class btn_dist_danger: RscButton
 {
@@ -101,7 +101,7 @@ class btn_dist_danger: RscButton
 	y = 0.28;
 	w = 0.0625;
 	h = 0.04;
-	action = "0 call gnk_fnc_showDistance";
+	action = "0 call gnk_fnc_fam_showDistance";
 };
 class txt_dist: RscStructuredText
 {
@@ -120,7 +120,7 @@ class btn_dist_close: RscButton
 	y = 0.28;
 	w = 0.0625;
 	h = 0.04;
-	action = "1 call gnk_fnc_showDistance";
+	action = "1 call gnk_fnc_fam_showDistance";
 };
 class btn_dist_medium: RscButton
 {
@@ -130,7 +130,7 @@ class btn_dist_medium: RscButton
 	y = 0.28;
 	w = 0.0625;
 	h = 0.04;
-	action = "2 call gnk_fnc_showDistance";
+	action = "2 call gnk_fnc_fam_showDistance";
 };
 class btn_dist_far: RscButton
 {
@@ -140,7 +140,7 @@ class btn_dist_far: RscButton
 	y = 0.28;
 	w = 0.0625;
 	h = 0.04;
-	action = "3 call gnk_fnc_showDistance";
+	action = "3 call gnk_fnc_fam_showDistance";
 };
 class btn_dist_vfar: RscButton
 {
@@ -150,7 +150,7 @@ class btn_dist_vfar: RscButton
 	y = 0.28;
 	w = 0.075;
 	h = 0.04;
-	action = "4 call gnk_fnc_showDistance";
+	action = "4 call gnk_fnc_fam_showDistance";
 };
 class txt_contact: RscStructuredText
 {
@@ -169,7 +169,7 @@ class btn_cont_danger: RscButton
 	y = 0.36;
 	w = 0.0625;
 	h = 0.04;
-	action = "_handle = [1] execVM 'fam_scripts\contacts.sqf'";
+	action = "0 call gnk_fnc_fam_contact";
 };
 class btn_cont_close: RscButton
 {
@@ -179,7 +179,7 @@ class btn_cont_close: RscButton
 	y = 0.36;
 	w = 0.0625;
 	h = 0.04;
-	action = "_handle = [2] execVM 'fam_scripts\contacts.sqf'";
+	action = "1 call gnk_fnc_fam_contact";
 };
 class btn_cont_medium: RscButton
 {
@@ -189,7 +189,7 @@ class btn_cont_medium: RscButton
 	y = 0.36;
 	w = 0.0625;
 	h = 0.04;
-	action = "_handle = [3] execVM 'fam_scripts\contacts.sqf'";
+	action = "2 call gnk_fnc_fam_contact";
 };
 class btn_cont_far: RscButton
 {
@@ -199,7 +199,7 @@ class btn_cont_far: RscButton
 	y = 0.36;
 	w = 0.0625;
 	h = 0.04;
-	action = "_handle = [4] execVM 'fam_scripts\contacts.sqf'";
+	action = "3 call gnk_fnc_fam_contact";
 };
 class btn_cont_vfar: RscButton
 {
@@ -209,7 +209,7 @@ class btn_cont_vfar: RscButton
 	y = 0.36;
 	w = 0.075;
 	h = 0.04;
-	action = "_handle = [5] execVM 'fam_scripts\contacts.sqf'";
+	action = "4 call gnk_fnc_fam_contact";
 };
 class btn_main_siteFamila: RscButton
 {
@@ -225,4 +225,4 @@ class btn_main_siteFamila: RscButton
 	};
 	
 
-}; // 228 функции писать не бросим #get
+};
