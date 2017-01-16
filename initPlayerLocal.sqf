@@ -1,5 +1,6 @@
-if (serverCommandAvailable "#kick") then {
-
+_handle = [] execVM "Functions.sqf";
+if (player call gnk_fnc_isAuthorizedUser) then {
+	call gnk_fnc_initFamil;
 	waitUntil {!isNull(findDisplay 46)};
 	(findDisplay 46) displaySetEventHandler ["KeyDown","_this call keyspressed"];
 
