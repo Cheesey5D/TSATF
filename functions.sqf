@@ -89,3 +89,16 @@ if (!isNil "mrk_cont") then {deleteVehicle mrk_cont};
 mrk_cont = "Sign_Sphere10cm_F" createVehicle (player getPos [2.5, ([player, cont_tgt] call BIS_fnc_dirTo)]);
 mrk_cont setPos (mrk_cont modelToWorld [0,0,2]);
 };	
+
+gnk_fnc_bc_kits = {
+
+	switch (select _this) do {
+
+		case 0: {{removeAllWeapons _x; _x addWeapon "Binoculars";} forEach units group master};
+		case 1: {{removeAllWeapons _x; _x addWeapon "Binoculars"; _x addWeapon "arifle_Mk20_GL_F"; _x addMagazines ["1Rnd_HE_Grenade_shell", 10];} forEach units group master};
+		case 2: {{removeAllWeapons _x; _x addWeapon "Binoculars"; _x addWeapon "rhs_weap_M136";} forEach units group master};
+		case 3: {{removeAllWeapons _x; _x addWeapon "Binoculars"; _x addWeapon "rhs_weap_m240_base"; _x addMagazines ["rhsusf_100Rnd_762x51", 2]; player addItem "ACE_EarPlugs";} forEach units group master};
+		
+	};
+};
+
