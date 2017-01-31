@@ -57,7 +57,7 @@ gnk_fnc_fam_showDistance = {
 	
 	mrk = _mrktype createVehicle _pos;
 	mrk setPosATL _pos;
-	mrk remoteExec ["gnk_fnc_fam_draw", (group player), true];
+	[mrk, nil] remoteExec ["gnk_fnc_fam_draw", (group player), true];
 };
 
 
@@ -66,7 +66,6 @@ gnk_fnc_fam_showDistance = {
 gnk_fnc_fam_contact = {
 
 if (!isNil "cont_tgt") then {deleteVehicle cont_tgt};
-//if (!isNil "mrk_cont") then {deleteVehicle mrk_cont};
 	private _dist = ([
 		50, 100, 300, 600, 800
 		]) select _this;
@@ -77,13 +76,13 @@ if (!isNil "cont_tgt") then {deleteVehicle cont_tgt};
 			do { 
 			cont_tgt setPos (player getPos [_dist, (random 360)]);};
 			
-cont_tgt remoteExec ["gnk_fnc_fam_draw", (group player), true];
-//mrk_cont = "Sign_Sphere10cm_F" createVehicle (player getPos [2.5, ([player, cont_tgt] call BIS_fnc_dirTo)]);
-//mrk_cont setPos (mrk_cont modelToWorld [0,0,2]);
+[nil, cont_tgt] remoteExec ["gnk_fnc_fam_draw", (group player), true];
 };	
 
 
 gnk_fnc_fam_draw = {
+	mrk = _this select 0;
+	cont_tgt = _this select 1;
 	if (isNil "cont_tgt" && isNil "mrk") exitWith {};	
 	if (!isNil "mrk") then {
 		drawIcon3D ["", [0,1,0,1], getPos mrk, 1, 1, 45, "Look at me!", 2, 0.04, "PuristaMedium", "Center"];
