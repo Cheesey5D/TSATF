@@ -1,3 +1,5 @@
+
+
 class ts_famila
 {
 	idd=1337;
@@ -33,6 +35,7 @@ class btn_main_prev: RscButton
 	y = 0.12;
 	w = 0.025;
 	h = 0.04;
+	action = "closeDialog 1; _handle = createDialog 'ts_bc'";
 };
 class btn_main_next: RscButton
 {
@@ -42,6 +45,7 @@ class btn_main_next: RscButton
 	y = 0.12;
 	w = 0.025;
 	h = 0.04;
+	action = "closeDialog 1; _handle = createDialog 'ts_bc'";
 };
 class btn_form_balls: RscButton
 {
@@ -101,7 +105,7 @@ class btn_dist_danger: RscButton
 	y = 0.28;
 	w = 0.0625;
 	h = 0.04;
-	action = "0 call gnk_fnc_fam_showDistance";
+	action = "0 call gnk_fnc_fam_showDistance;";
 };
 class txt_dist: RscStructuredText
 {
@@ -120,7 +124,7 @@ class btn_dist_close: RscButton
 	y = 0.28;
 	w = 0.0625;
 	h = 0.04;
-	action = "1 call gnk_fnc_fam_showDistance";
+	action = "1 call gnk_fnc_fam_showDistance;";
 };
 class btn_dist_medium: RscButton
 {
@@ -130,7 +134,7 @@ class btn_dist_medium: RscButton
 	y = 0.28;
 	w = 0.0625;
 	h = 0.04;
-	action = "2 call gnk_fnc_fam_showDistance";
+	action = "2 call gnk_fnc_fam_showDistance;";
 };
 class btn_dist_far: RscButton
 {
@@ -140,7 +144,7 @@ class btn_dist_far: RscButton
 	y = 0.28;
 	w = 0.0625;
 	h = 0.04;
-	action = "3 call gnk_fnc_fam_showDistance";
+	action = "3 call gnk_fnc_fam_showDistance;";
 };
 class btn_dist_vfar: RscButton
 {
@@ -150,7 +154,7 @@ class btn_dist_vfar: RscButton
 	y = 0.28;
 	w = 0.075;
 	h = 0.04;
-	action = "4 call gnk_fnc_fam_showDistance";
+	action = "4 call gnk_fnc_fam_showDistance;";
 };
 class txt_contact: RscStructuredText
 {
@@ -204,12 +208,12 @@ class btn_cont_far: RscButton
 class btn_cont_vfar: RscButton
 {
 	idc = 1616;
-	text = "VFar"; //--- ToDo: Localize;
+	text = "End"; //--- ToDo: Localize;
 	x = 0.7;
 	y = 0.36;
 	w = 0.075;
 	h = 0.04;
-	action = "4 call gnk_fnc_fam_contact";
+	action = "remoteExec ['gnk_fnc_fam_removeDraw', group player, true]";
 };
 class btn_main_siteFamila: RscButton
 {
@@ -219,10 +223,233 @@ class btn_main_siteFamila: RscButton
 	y = 0.44;
 	w = 0.5;
 	h = 0.04;
-	action = "{_x SetPos (getMarkerPos 'mrk_tp_famil')} forEach units group master"
+	action = "0 call gnk_fnc_teleport";
 };
 
 	};
 	
 
 };
+
+
+
+/* BASIC COMPETENCY =================================================================================================== */
+
+class ts_bc
+{
+	idd=1338;
+	movingenable=false;
+	
+	class controls
+	{
+
+
+
+class rsc_frame_bc: RscFrame
+{
+	idc = 1800;
+	x = 0.2;
+	y = 0.1;
+	w = 0.6;
+	h = 0.52;
+};
+class txt_main_bc: RscStructuredText
+{
+	idc = 1100;
+	text = "Basic competency"; //--- ToDo: Localize;
+	x = 0.25;
+	y = 0.12;
+	w = 0.5;
+	h = 0.04;
+};
+class btn_bc_prev: RscButton
+{
+	idc = 1600;
+	text = "<"; //--- ToDo: Localize;
+	x = 0.225;
+	y = 0.12;
+	w = 0.025;
+	h = 0.04;
+	action = "closeDialog 1; _handle = createDialog 'ts_famila'";
+};
+class btn_bc_next: RscButton
+{
+	idc = 1601;
+	text = ">"; //--- ToDo: Localize;
+	x = 0.75;
+	y = 0.12;
+	w = 0.025;
+	h = 0.04;
+	action = "closeDialog 1; _handle = createDialog 'ts_famila'";
+};
+class btn_kit_pathfinder: RscButton
+{
+	idc = 1602;
+	text = "Apply Pathfinder kit"; //--- ToDo: Localize;
+	x = 0.525;
+	y = 0.2;
+	w = 0.25;
+	h = 0.04;
+	action = "0 remoteExec ['gnk_fnc_bc_kits', 0, true]";
+};
+class btn_bc_torange: RscButton
+{
+	idc = 1603;
+	text = "Go to range"; //--- ToDo: Localize;
+	x = 0.225;
+	y = 0.2;
+	w = 0.25;
+	h = 0.04;
+	action = "1 call gnk_fnc_teleport";
+};
+class btn_high_r1: RscButton
+{
+	idc = 1604;
+	text = "R1"; //--- ToDo: Localize;
+	x = 0.5375;
+	y = 0.26;
+	w = 0.0375;
+	h = 0.04;
+};
+class btn_high_r2: RscButton
+{
+	idc = 1605;
+	text = "R2"; //--- ToDo: Localize;
+	x = 0.6;
+	y = 0.26;
+	w = 0.0375;
+	h = 0.04;
+};
+class btn_high_r3: RscButton
+{
+	idc = 1606;
+	text = "R3"; //--- ToDo: Localize;
+	x = 0.6625;
+	y = 0.26;
+	w = 0.0375;
+	h = 0.04;
+};
+class btn_high_r4: RscButton
+{
+	idc = 1607;
+	text = "R4"; //--- ToDo: Localize;
+	x = 0.725;
+	y = 0.26;
+	w = 0.0375;
+	h = 0.04;
+};
+class btn_high_text: RscStructuredText
+{
+	idc = 1101;
+	text = "Highlight targets at"; //--- ToDo: Localize;
+	x = 0.225;
+	y = 0.26;
+	w = 0.25;
+	h = 0.04;
+};
+class btn_bc_togl: RscButton
+{
+	idc = 1608;
+	text = "Go to GL range"; //--- ToDo: Localize;
+	x = 0.225;
+	y = 0.32;
+	w = 0.25;
+	h = 0.04;
+	action = "2 call gnk_fnc_teleport";
+};
+class btn_bc_toat: RscButton
+{
+	idc = 1609;
+	text = "Go to AT range"; //--- ToDo: Localize;
+	x = 0.225;
+	y = 0.38;
+	w = 0.25;
+	h = 0.04;
+	action = "3 call gnk_fnc_teleport";
+};
+class btn_bc_tomg: RscButton
+{
+	idc = 1610;
+	text = "Go to MG range"; //--- ToDo: Localize;
+	x = 0.225;
+	y = 0.44;
+	w = 0.25;
+	h = 0.04;
+	action = "4 call gnk_fnc_teleport";
+};
+class btn_bc_tomedical: RscButton
+{
+	idc = 1611;
+	text = "Go to medical"; //--- ToDo: Localize;
+	x = 0.225;
+	y = 0.5;
+	w = 0.25;
+	h = 0.04;
+	action = "5 call gnk_fnc_teleport";
+};
+
+class btn_bc_tokillhouse: RscButton
+{
+	idc = 1616;
+	text = "Go to killhouse"; //--- ToDo: Localize;
+	x = 0.225;
+	y = 0.56;
+	w = 0.25;
+	h = 0.04;
+	action = "6 call gnk_fnc_teleport";
+};
+
+class btn_kit_gl: RscButton
+{
+	idc = 1612;
+	text = "Apply Grenadier kit"; //--- ToDo: Localize;
+	x = 0.525;
+	y = 0.32;
+	w = 0.25;
+	h = 0.04;
+	action = "1 remoteExec ['gnk_fnc_bc_kits', 0, true]";
+};
+class btn_kit_AT: RscButton
+{
+	idc = 1613;
+	text = "Apply AT kit"; //--- ToDo: Localize;
+	x = 0.525;
+	y = 0.38;
+	w = 0.25;
+	h = 0.04;
+	action = "2 remoteExec ['gnk_fnc_bc_kits', 0, true]";
+};
+class btn_kit_mg: RscButton
+{
+	idc = 1614;
+	text = "Apply MG kit"; //--- ToDo: Localize;
+	x = 0.525;
+	y = 0.44;
+	w = 0.25;
+	h = 0.04;
+	action = "3 remoteExec ['gnk_fnc_bc_kits', 0, true]";
+};
+class btn_med_info: RscButton
+{
+	idc = 1615;
+	text = "Show medical info screen"; //--- ToDo: Localize;
+	x = 0.525;
+	y = 0.5;
+	w = 0.25;
+	h = 0.04;
+};
+
+class btn_kit_killhouse: RscButton
+{
+	idc = 1617;
+	text = "Apply Killhouse kit"; //--- ToDo: Localize;
+	x = 0.525;
+	y = 0.56;
+	w = 0.25;
+	h = 0.04;
+	action = "4 remoteExec ['gnk_fnc_bc_kits', 0, true]";
+};
+
+	};
+};
+
