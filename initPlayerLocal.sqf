@@ -4,7 +4,7 @@
 		call gnk_fnc_initFamil;
 
 		waitUntil {!isNull(findDisplay 46)};
-		(findDisplay 46) displaySetEventHandler ["KeyDown","_this call keyspressed"];
+		(findDisplay 46) displayAddEventHandler ["KeyDown","_this call keyspressed"];
 
 		keyspressed = {
 			_handled = false;
@@ -12,9 +12,22 @@
 
 			case 199: {//Home key
 					_handle = createDialog "ts_famila";
+					_handled = true;
 				};
 			};
 			_handled;
 		};
 	};
 };
+
+
+[] spawn {
+	cont_tgt = nil;
+	mrk = nil;
+	[
+		"gnk_showMark"
+		, "onEachFrame"
+		, { call gnk_fnc_fam_draw }
+	] call BIS_fnc_addStackedEventHandler;	
+};
+
