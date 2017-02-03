@@ -11,23 +11,30 @@
 			switch (_this select 1) do {
 
 			case 199: {//Home key
-					_handle = createDialog "ts_famila";
+					closeDialog 1;
+					_handle = call gnk_fnc_showMenu;
 					_handled = true;
 				};
 			};
 			_handled;
 		};
 	};
+call compile preProcessFileLineNumbers "clientFunctions.sqf";
 };
 
 
 [] spawn {
-	cont_tgt = nil;
-	mrk = nil;
 	[
-		"gnk_showMark"
+		"gnk_showFamMark"
 		, "onEachFrame"
 		, { call gnk_fnc_fam_draw }
 	] call BIS_fnc_addStackedEventHandler;	
 };
 
+[] spawn {
+	[
+		"gnk_showBcMark"
+		, "onEachFrame"
+		, { call gnk_fnc_bc_draw }
+	] call BIS_fnc_addStackedEventHandler;	
+};
