@@ -5,6 +5,19 @@ class ts_famila
 	idd=1337;
 	movingenable=false;
 	
+	  class controlsBackground
+    {
+        class rsc_menu_background: RscPicture
+        {
+                idc = 1123;
+                x = 0.2;
+                y = 0.1;
+                w = 0.599;
+                h = 0.4;
+                                text = "images\menu2.jpg";
+        };
+    };
+	
 	class controls
 	{
 
@@ -26,6 +39,9 @@ class txt_main_famila: RscStructuredText
 	y = 0.12;
 	w = 0.5;
 	h = 0.04;
+		class Attributes {
+			align = "CENTER";
+		};
 };
 class btn_main_prev: RscButton
 {
@@ -35,7 +51,7 @@ class btn_main_prev: RscButton
 	y = 0.12;
 	w = 0.025;
 	h = 0.04;
-	action = "closeDialog 1; _handle = createDialog 'ts_bc'";
+	action = "1 call gnk_fnc_switchMenu";
 };
 class btn_main_next: RscButton
 {
@@ -45,7 +61,7 @@ class btn_main_next: RscButton
 	y = 0.12;
 	w = 0.025;
 	h = 0.04;
-	action = "closeDialog 1; _handle = createDialog 'ts_bc'";
+	action = "0 call gnk_fnc_switchMenu";
 };
 class btn_form_balls: RscButton
 {
@@ -208,12 +224,12 @@ class btn_cont_far: RscButton
 class btn_cont_vfar: RscButton
 {
 	idc = 1616;
-	text = "End"; //--- ToDo: Localize;
+	text = "Clear"; //--- ToDo: Localize;
 	x = 0.7;
 	y = 0.36;
 	w = 0.075;
 	h = 0.04;
-	action = "remoteExec ['gnk_fnc_fam_removeDraw', group player, true]";
+	action = "call gnk_fnc_fam_removeDraw";
 };
 class btn_main_siteFamila: RscButton
 {
@@ -240,6 +256,19 @@ class ts_bc
 	idd=1338;
 	movingenable=false;
 	
+	class controlsBackground
+    {
+        class rsc_menu_background: RscPicture
+        {
+                idc = 1124;
+                x = 0.2;
+                y = 0.1;
+                w = 0.599;
+                h = 0.52;
+                                text = "images\menu2.jpg";
+        };
+    };
+	
 	class controls
 	{
 
@@ -261,6 +290,9 @@ class txt_main_bc: RscStructuredText
 	y = 0.12;
 	w = 0.5;
 	h = 0.04;
+		class Attributes {
+			align = "CENTER";
+		};
 };
 class btn_bc_prev: RscButton
 {
@@ -270,7 +302,7 @@ class btn_bc_prev: RscButton
 	y = 0.12;
 	w = 0.025;
 	h = 0.04;
-	action = "closeDialog 1; _handle = createDialog 'ts_famila'";
+	action = "1 call gnk_fnc_switchMenu";
 };
 class btn_bc_next: RscButton
 {
@@ -280,7 +312,7 @@ class btn_bc_next: RscButton
 	y = 0.12;
 	w = 0.025;
 	h = 0.04;
-	action = "closeDialog 1; _handle = createDialog 'ts_famila'";
+	action = "0 call gnk_fnc_switchMenu";
 };
 class btn_kit_pathfinder: RscButton
 {
@@ -288,9 +320,19 @@ class btn_kit_pathfinder: RscButton
 	text = "Apply Pathfinder kit"; //--- ToDo: Localize;
 	x = 0.525;
 	y = 0.2;
-	w = 0.25;
+	w = 0.19;
 	h = 0.04;
-	action = "0 remoteExec ['gnk_fnc_bc_kits', 0, true]";
+	action = "0 remoteExec ['gnk_fnc_bc_kits', 0, true];";
+};
+class btn_hint_pathfinder: RscButton
+{
+	idc = 1650;
+	text = "?"; //--- ToDo: Localize;
+	x = 0.725;
+	y = 0.2;
+	w = 0.05;
+	h = 0.04;
+	action = "0 call gnk_fnc_bc_hint";
 };
 class btn_bc_torange: RscButton
 {
@@ -415,9 +457,19 @@ class btn_kit_AT: RscButton
 	text = "Apply AT kit"; //--- ToDo: Localize;
 	x = 0.525;
 	y = 0.38;
-	w = 0.25;
+	w = 0.19;
 	h = 0.04;
 	action = "2 remoteExec ['gnk_fnc_bc_kits', 0, true]";
+};
+class btn_hint_AT: RscButton
+{
+	idc = 1652;
+	text = "?"; //--- ToDo: Localize;
+	x = 0.725;
+	y = 0.38;
+	w = 0.05;
+	h = 0.04;
+	action = "1 call gnk_fnc_bc_hint";
 };
 class btn_kit_mg: RscButton
 {
@@ -425,9 +477,19 @@ class btn_kit_mg: RscButton
 	text = "Apply MG kit"; //--- ToDo: Localize;
 	x = 0.525;
 	y = 0.44;
-	w = 0.25;
+	w = 0.19;
 	h = 0.04;
 	action = "3 remoteExec ['gnk_fnc_bc_kits', 0, true]";
+};
+class btn_hint_mg: RscButton
+{
+	idc = 1660;
+	text = "Jam"; //--- ToDo: Localize;
+	x = 0.725;
+	y = 0.44;
+	w = 0.05;
+	h = 0.04;
+	action = "call gnk_fnc_bc_jam";
 };
 class btn_med_info: RscButton
 {
@@ -437,6 +499,7 @@ class btn_med_info: RscButton
 	y = 0.5;
 	w = 0.25;
 	h = 0.04;
+	action = "call gnk_fnc_bc_medInfo";
 };
 
 class btn_kit_killhouse: RscButton
@@ -452,4 +515,3 @@ class btn_kit_killhouse: RscButton
 
 	};
 };
-
