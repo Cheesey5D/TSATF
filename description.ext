@@ -1,8 +1,11 @@
 respawn = 3;
 enableDebugConsole = 1;
 DisabledAI = 1;
+Author="GNK";
+onLoadName="tS basic course";
+overviewText = "Familiarization and Basic competency courses";
+overviewPicture = "overview.jpg";
+loadscreen =  "overview.jpg";
 
 #include "defines.hpp"
 #include "dialogs.hpp"
-#include "\A3\ui_f\hpp\defineCommonGrids.inc"
-#include "\A3\ui_f\hpp\defineCommonColors.inc"
