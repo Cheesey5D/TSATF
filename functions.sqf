@@ -145,39 +145,27 @@ private _puzda = (1000*2);
 						 MTP%1 = floor(_xyu/DTP%1);"         
 					, _i
 					] 
+					};
 				};
-				
-				hint format[ "Distance to T1: %1, MILs: %2\n
-							Distance to T2: %3, MILs: %4\n
-							Distance to T3: %5, MILs: %6\n
-							Distance to T4: %7, MILs: %8\n"
-							, 
-							DTP1, MTP1,
-							DTP2, MTP2,
-							DTP3, MTP3,
-							DTP4, MTP4
-							];
-			};
-					
 		case 1: {for "_i" from 1 to 4 do { 
 					call compile format [
-						"DTA%1 = player distance ATT%1;
-						 MTA%1 = floor(_puzda/DTA%1);"         
+						"DTP%1 = player distance ATT%1;
+						 MTP%1 = floor(_puzda/DTP%1);"         
 					, _i
-					] 
-				};
-				
-				hint format[ "Distance to T1: %1, MILs: %2\n
-							Distance to T2: %3, MILs: %4\n
-							Distance to T3: %5, MILs: %6\n
-							Distance to T4: %7, MILs: %8\n"
-							, 
-							DTA1, MTA1,
-							DTA2, MTA2,
-							DTA3, MTA3,
-							DTA4, MTA4
-							];
+					]
+					};
 				};
 	};
+
+hint format[ "Distance to Target 1: %1, MILs: %2\n
+Distance to Target 2: %3, MILs: %4\n
+Distance to Target 3: %5, MILs: %6\n
+Distance to Target 4: %7, MILs: %8\n"
+, 
+DTP1, MTP1,
+DTP2, MTP2,
+DTP3, MTP3,
+DTP4, MTP4
+			];
 };
 
